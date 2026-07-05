@@ -38,7 +38,7 @@ export default async function HomePage({
                 priority
                 quality={90}
                 sizes="100vw"
-                className="object-cover object-[68%_center]"
+                className="object-cover object-[28%_center]"
               />
             </div>
           </Parallax>
