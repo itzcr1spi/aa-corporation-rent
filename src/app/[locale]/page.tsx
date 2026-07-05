@@ -30,7 +30,7 @@ export default async function HomePage({
         <div aria-hidden className="absolute inset-0 -z-10 bg-void">
           {/* Photo drifts gently with scroll; oversized so parallax never reveals edges */}
           <Parallax className="absolute inset-0" distance={70}>
-            <div className="absolute inset-x-0 -top-[8%] h-[116%]">
+            <div className="absolute inset-x-0 -top-[8%] h-[116%] translate-x-[9%]">
               <Image
                 src="/hero/bmw-740d.jpg"
                 alt=""
@@ -38,7 +38,7 @@ export default async function HomePage({
                 priority
                 quality={90}
                 sizes="100vw"
-                className="object-cover object-[12%_center]"
+                className="object-cover object-[10%_center]"
               />
             </div>
           </Parallax>
