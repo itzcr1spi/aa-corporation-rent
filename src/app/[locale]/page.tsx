@@ -38,17 +38,17 @@ export default async function HomePage({
                 priority
                 quality={90}
                 sizes="100vw"
-                className="object-cover object-[28%_center]"
+                className="object-cover object-[12%_center]"
               />
             </div>
           </Parallax>
-          {/* Left-weighted scrim keeps the headline legible; the (already dark) car
-              stays readable on the right, so the right side is only lightly tinted */}
+          {/* Solid black panel on the left holds the text clear of the car; the photo
+              emerges on the right. The (already dark) car keeps a light tint only. */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.62) 34%, rgba(0,0,0,0.22) 66%, rgba(0,0,0,0.32) 100%)",
+                "linear-gradient(90deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.94) 32%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,0.2) 78%, rgba(0,0,0,0.34) 100%)",
             }}
           />
           {/* Slight top darkening for the nav + melt the bottom into the next section */}
