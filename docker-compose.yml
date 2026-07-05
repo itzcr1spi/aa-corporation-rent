@@ -1,0 +1,35 @@
+# Local development services. Production uses managed/self-hosted equivalents.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: aa
+      POSTGRES_PASSWORD: aa_dev_password
+      POSTGRES_DB: aa_rental
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aa -d aa_rental"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # S3-compatible object storage for docs/photos. Mirrors Hetzner Object Storage
+  # so the S3 driver behaves identically in dev and prod. Console: http://localhost:9001
+  storage:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: aa
+      MINIO_ROOT_PASSWORD: aa_dev_password
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - storage_data:/data
+
+volumes:
+  db_data:
+  storage_data:
