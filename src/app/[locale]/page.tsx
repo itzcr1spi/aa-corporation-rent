@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
@@ -24,24 +25,46 @@ export default async function HomePage({
 
   return (
     <>
-      {/* HERO — placeholder cinematic backdrop until brand car photography lands */}
+      {/* HERO — full-bleed BMW 740d photography under cinematic dark scrims */}
       <section className="relative flex min-h-[88vh] items-center overflow-hidden">
-        <div aria-hidden className="absolute inset-0 -z-10">
-          <Parallax className="absolute inset-0" distance={60}>
-            <div
-              className="absolute inset-x-0 -inset-y-[20%]"
-              style={{
-                background:
-                  "radial-gradient(120% 80% at 50% -10%, #181818 0%, #0a0a0a 42%, #000000 78%)",
-              }}
-            />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-void">
+          {/* Photo drifts gently with scroll; oversized so parallax never reveals edges */}
+          <Parallax className="absolute inset-0" distance={70}>
+            <div className="absolute inset-x-0 -top-[8%] h-[116%]">
+              <Image
+                src="/hero/bmw-740d.jpg"
+                alt=""
+                fill
+                priority
+                quality={90}
+                sizes="100vw"
+                className="object-cover object-[68%_center]"
+              />
+            </div>
           </Parallax>
+          {/* Left-weighted scrim keeps the headline legible; the (already dark) car
+              stays readable on the right, so the right side is only lightly tinted */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.62) 34%, rgba(0,0,0,0.22) 66%, rgba(0,0,0,0.32) 100%)",
+            }}
+          />
+          {/* Slight top darkening for the nav + melt the bottom into the next section */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 24%, rgba(0,0,0,0) 60%, #000000 100%)",
+            }}
+          />
           {/* faint signal-red horizon glow, low and restrained */}
           <div
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(55% 90% at 50% 120%, rgba(237,28,36,0.16), transparent 70%)",
+                "radial-gradient(60% 70% at 50% 122%, rgba(237,28,36,0.14), transparent 70%)",
             }}
           />
           <div className="absolute inset-x-0 bottom-0 h-px bg-line" />
