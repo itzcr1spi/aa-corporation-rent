@@ -1,0 +1,41 @@
+{
+  "Meta": {
+    "title": "A&A Corporation — Premium Car Rental in Warsaw",
+    "description": "Premium Car Rental Warsaw. Book premium cars online — SUVs, business vans and executive sedans. Door-to-door delivery and Chopin Airport pickup."
+  },
+  "Nav": {
+    "fleet": "Fleet",
+    "howItWorks": "How it works",
+    "contact": "Contact",
+    "book": "Book now",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "Hero": {
+    "eyebrow": "Premium Car Rental · Warsaw",
+    "title": "Premium car rental, on your terms",
+    "subtitle": "Book online in minutes. Door-to-door delivery in Warsaw and pickup straight from Chopin Airport.",
+    "cta": "Book now",
+    "ctaSecondary": "View the fleet"
+  },
+  "Highlights": {
+    "title": "Why A&A",
+    "onlineBooking": "Online booking",
+    "onlineBookingDesc": "Pick your car, dates and pickup point — no phone calls, no paperwork at the desk.",
+    "delivery": "Door-to-door delivery",
+    "deliveryDesc": "We bring the car to your address in Warsaw and the surrounding area.",
+    "airport": "Chopin Airport pickup",
+    "airportDesc": "Collect your car straight from the airport — ready to drive.",
+    "premium": "SUV · Premium · Business Van",
+    "premiumDesc": "A meticulously maintained fleet for business, family and travel."
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "nip": "VAT ID: —",
+    "builtWith": "Premium Car Rental Warsaw"
+  },
+  "Common": {
+    "loading": "Loading…",
+    "comingSoon": "Coming soon"
+  }
+}

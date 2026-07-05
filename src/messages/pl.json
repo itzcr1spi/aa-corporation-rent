@@ -1,0 +1,41 @@
+{
+  "Meta": {
+    "title": "A&A Corporation — Wynajem aut premium w Warszawie",
+    "description": "Premium Car Rental Warszawa. Rezerwuj samochody klasy premium online — SUV, business van i limuzyny. Dostawa auta pod klienta i odbiór z Lotniska Chopina."
+  },
+  "Nav": {
+    "fleet": "Flota",
+    "howItWorks": "Jak to działa",
+    "contact": "Kontakt",
+    "book": "Zarezerwuj teraz",
+    "menu": "Menu",
+    "language": "Język"
+  },
+  "Hero": {
+    "eyebrow": "Premium Car Rental · Warszawa",
+    "title": "Wynajem aut premium na Twoich warunkach",
+    "subtitle": "Rezerwuj online w kilka minut. Dostawa auta pod wskazany adres i odbiór z Lotniska Chopina.",
+    "cta": "Zarezerwuj teraz",
+    "ctaSecondary": "Zobacz flotę"
+  },
+  "Highlights": {
+    "title": "Dlaczego A&A",
+    "onlineBooking": "Rezerwacja online",
+    "onlineBookingDesc": "Wybierz auto, termin i miejsce odbioru — bez telefonów i formalności w biurze.",
+    "delivery": "Dostawa pod klienta",
+    "deliveryDesc": "Podstawiamy samochód pod wskazany adres w Warszawie i okolicach.",
+    "airport": "Odbiór Lotnisko Chopina",
+    "airportDesc": "Odbierz auto prosto z lotniska — czeka gotowe do drogi.",
+    "premium": "SUV · Premium · Business Van",
+    "premiumDesc": "Starannie utrzymana flota do biznesu, rodziny i podróży."
+  },
+  "Footer": {
+    "rights": "Wszelkie prawa zastrzeżone.",
+    "nip": "NIP: —",
+    "builtWith": "Premium Car Rental Warszawa"
+  },
+  "Common": {
+    "loading": "Ładowanie…",
+    "comingSoon": "Wkrótce"
+  }
+}
