@@ -33,7 +33,7 @@ export default async function HomePage({
         <div aria-hidden className="absolute inset-0 -z-10 bg-void">
           {/* Photo drifts gently with scroll; oversized so parallax never reveals edges */}
           <Parallax className="absolute inset-0" distance={70}>
-            <div className="absolute inset-x-0 -top-[8%] h-[116%] translate-x-[9%]">
+            <div className="absolute inset-x-0 -top-[8%] h-[116%] translate-x-0 md:translate-x-[9%]">
               <Image
                 src="/hero/bmw-740d.jpg"
                 alt=""
@@ -41,17 +41,26 @@ export default async function HomePage({
                 priority
                 quality={90}
                 sizes="100vw"
-                className="object-cover object-[10%_center]"
+                className="object-cover object-[48%_center] md:object-[10%_center]"
               />
             </div>
           </Parallax>
-          {/* Solid black panel on the left holds the text clear of the car; the photo
-              emerges on the right. The (already dark) car keeps a light tint only. */}
+          {/* Desktop: solid black panel on the left holds the text clear of the car;
+              the photo emerges on the right. */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 hidden md:block"
             style={{
               background:
                 "linear-gradient(90deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.94) 32%, rgba(0,0,0,0.6) 52%, rgba(0,0,0,0.2) 78%, rgba(0,0,0,0.34) 100%)",
+            }}
+          />
+          {/* Mobile: text stacks over the photo, so darken vertically for legibility
+              while letting the centered car (and its bright headlights) show through. */}
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(0,0,0,0.86) 0%, rgba(0,0,0,0.72) 40%, rgba(0,0,0,0.38) 64%, rgba(0,0,0,0.58) 85%, #000 100%)",
             }}
           />
           {/* Slight top darkening for the nav + melt the bottom into the next section */}
