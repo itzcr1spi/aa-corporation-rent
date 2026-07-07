@@ -10,6 +10,7 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
 import { FLEET } from "../fleet/data";
+import { FEE_DEFAULTS, LOCATION_DEFAULTS } from "../booking/fees";
 
 async function main() {
   const url = process.env.DATABASE_URL;
@@ -17,6 +18,35 @@ async function main() {
 
   const client = postgres(url, { max: 1 });
   const db = drizzle(client, { schema });
+
+  // Pickup locations
+  await db
+    .insert(schema.pickupLocations)
+    .values(
+      LOCATION_DEFAULTS.map((l) => ({
+        slug: l.slug,
+        name: l.name,
+        nameEn: l.nameEn,
+        address: l.address,
+        feeGrosze: l.feeGrosze,
+        sortOrder: l.sortOrder,
+      })),
+    )
+    .onConflictDoNothing({ target: schema.pickupLocations.slug });
+  console.log(`Seeded ${LOCATION_DEFAULTS.length} pickup locations`);
+
+  // Extras / fees
+  const feeRows = [
+    { code: "extra_driver", ...FEE_DEFAULTS.extraDriver },
+    { code: "child_seat", ...FEE_DEFAULTS.childSeat },
+    { code: "protection_package", ...FEE_DEFAULTS.protectionPackage },
+    { code: "no_deposit", ...FEE_DEFAULTS.noDeposit },
+  ];
+  await db
+    .insert(schema.fees)
+    .values(feeRows)
+    .onConflictDoNothing({ target: schema.fees.code });
+  console.log(`Seeded ${feeRows.length} fees`);
 
   console.log(`Seeding ${FLEET.length} models…`);
   for (const m of FLEET) {
