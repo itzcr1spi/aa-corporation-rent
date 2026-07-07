@@ -40,6 +40,10 @@
   },
   "Fleet": {
     "eyebrow": "Flota",
+    "ourModels": "Nasze modele",
+    "viewAll": "Zobacz całą flotę",
+    "prev": "Poprzedni",
+    "next": "Następny",
     "title": "Nasza flota",
     "subtitle": "Starannie utrzymane samochody klasy premium. Wybierz model, sprawdź szczegóły i zarezerwuj online.",
     "perDay": "doba",

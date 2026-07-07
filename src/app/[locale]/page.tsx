@@ -4,6 +4,8 @@ import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { Parallax } from "@/components/motion/Parallax";
+import { ModelsShowcase } from "@/components/fleet/ModelsShowcase";
+import { getFleet } from "@/lib/fleet/repo";
 
 export default async function HomePage({
   params,
@@ -15,6 +17,7 @@ export default async function HomePage({
 
   const t = await getTranslations("Hero");
   const th = await getTranslations("Highlights");
+  const fleet = await getFleet();
 
   const highlights = [
     { title: th("onlineBooking"), desc: th("onlineBookingDesc") },
@@ -96,6 +99,9 @@ export default async function HomePage({
           </Reveal>
         </Container>
       </section>
+
+      {/* MODELS — Lamborghini-style swipeable showcase */}
+      <ModelsShowcase cars={fleet} />
 
       {/* HIGHLIGHTS — the spec's "wyróżniki", as hairline-divided columns */}
       <section>

@@ -40,6 +40,10 @@
   },
   "Fleet": {
     "eyebrow": "Fleet",
+    "ourModels": "Our models",
+    "viewAll": "View all cars",
+    "prev": "Previous",
+    "next": "Next",
     "title": "Our fleet",
     "subtitle": "A meticulously maintained premium fleet. Pick a model, check the details and book online.",
     "perDay": "day",
