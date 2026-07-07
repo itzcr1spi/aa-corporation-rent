@@ -37,5 +37,39 @@
   "Common": {
     "loading": "Ładowanie…",
     "comingSoon": "Wkrótce"
+  },
+  "Fleet": {
+    "eyebrow": "Flota",
+    "title": "Nasza flota",
+    "subtitle": "Starannie utrzymane samochody klasy premium. Wybierz model, sprawdź szczegóły i zarezerwuj online.",
+    "perDay": "doba",
+    "perMonth": "Miesięcznie",
+    "deposit": "Kaucja",
+    "from": "od",
+    "seats": "Miejsca",
+    "kmLimit": "Limit km/doba",
+    "kmUnlimited": "bez limitu",
+    "yearLabel": "Rok",
+    "gearboxLabel": "Skrzynia",
+    "fuelLabel": "Paliwo",
+    "viewCar": "Zobacz szczegóły",
+    "book": "Zarezerwuj",
+    "unavailable": "Chwilowo niedostępny",
+    "specs": "Dane techniczne",
+    "backToFleet": "Wróć do floty",
+    "bookingSoon": "Rezerwacja online — już wkrótce. Zadzwoń, aby zarezerwować.",
+    "gearbox": { "automatic": "Automatyczna", "manual": "Manualna" },
+    "fuel": {
+      "petrol": "Benzyna",
+      "diesel": "Diesel",
+      "hybrid": "Hybryda",
+      "electric": "Elektryczny"
+    },
+    "category": {
+      "label": "Typ",
+      "suv": "SUV",
+      "sedan": "Limuzyna",
+      "van": "Bus 9-osobowy"
+    }
   }
 }

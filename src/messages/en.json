@@ -37,5 +37,39 @@
   "Common": {
     "loading": "Loading…",
     "comingSoon": "Coming soon"
+  },
+  "Fleet": {
+    "eyebrow": "Fleet",
+    "title": "Our fleet",
+    "subtitle": "A meticulously maintained premium fleet. Pick a model, check the details and book online.",
+    "perDay": "day",
+    "perMonth": "Monthly",
+    "deposit": "Deposit",
+    "from": "from",
+    "seats": "Seats",
+    "kmLimit": "km/day limit",
+    "kmUnlimited": "unlimited",
+    "yearLabel": "Year",
+    "gearboxLabel": "Gearbox",
+    "fuelLabel": "Fuel",
+    "viewCar": "View details",
+    "book": "Book now",
+    "unavailable": "Currently unavailable",
+    "specs": "Specifications",
+    "backToFleet": "Back to fleet",
+    "bookingSoon": "Online booking — coming soon. Call us to reserve.",
+    "gearbox": { "automatic": "Automatic", "manual": "Manual" },
+    "fuel": {
+      "petrol": "Petrol",
+      "diesel": "Diesel",
+      "hybrid": "Hybrid",
+      "electric": "Electric"
+    },
+    "category": {
+      "label": "Type",
+      "suv": "SUV",
+      "sedan": "Sedan",
+      "van": "9-seat van"
+    }
   }
 }
