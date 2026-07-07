@@ -85,7 +85,7 @@ export const FLEET: FleetModelSeed[] = [
       "Skandynawski SUV klasy premium — komfort, bezpieczeństwo i elegancja na każdą trasę.",
     descriptionEn:
       "A premium Scandinavian SUV — comfort, safety and elegance for every route.",
-    images: [],
+    images: ["/fleet/volvo-xc60.jpg"],
     sortOrder: 20,
     units: [
       {
@@ -113,7 +113,7 @@ export const FLEET: FleetModelSeed[] = [
       "Ekonomiczny, niezawodny SUV hybrydowy. Doskonały do miasta i na dłuższe trasy.",
     descriptionEn:
       "An economical, dependable hybrid SUV. Perfect for the city and longer trips.",
-    images: [],
+    images: ["/fleet/toyota-rav4.jpg"],
     sortOrder: 30,
     units: [
       { plate: "WX 2001B", vin: "JTMB00000N0000003", mileageKm: 38000, status: "available" },
@@ -139,7 +139,7 @@ export const FLEET: FleetModelSeed[] = [
       "Przestronny bus 9-osobowy. Idealny na wyjazdy grupowe, transfery i przewóz bagażu.",
     descriptionEn:
       "A spacious 9-seat van. Ideal for group trips, transfers and luggage.",
-    images: [],
+    images: ["/fleet/renault-trafic.jpg"],
     sortOrder: 40,
     units: [
       {
