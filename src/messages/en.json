@@ -75,5 +75,52 @@
       "sedan": "Sedan",
       "van": "9-seat van"
     }
+  },
+  "Booking": {
+    "title": "Book this car",
+    "startDate": "Pick-up",
+    "endDate": "Return",
+    "location": "Pick-up location",
+    "extras": "Extras",
+    "extraDriver": "Additional driver",
+    "childSeat": "Child seat",
+    "protectionPackage": "Protection package",
+    "depositTitle": "Deposit",
+    "withDeposit": "With deposit",
+    "noDeposit": "No deposit",
+    "days": "{days, plural, one {# day} other {# days}}",
+    "rental": "Rental",
+    "total": "Total",
+    "depositHeld": "Deposit (refundable)",
+    "contact": "Contact details",
+    "name": "Full name",
+    "email": "E-mail",
+    "phone": "Phone",
+    "submit": "Send reservation",
+    "submitting": "Sending…",
+    "note": "Reservation without online payment. We'll confirm availability and get in touch.",
+    "successTitle": "Reservation sent",
+    "successBody": "Reservation number: {ref}. We'll contact you to confirm.",
+    "newBooking": "New reservation",
+    "lineLabels": {
+      "location": "Delivery / pick-up",
+      "extra_driver": "Additional driver",
+      "child_seat": "Child seat",
+      "protection_package": "Protection package",
+      "no_deposit": "No-deposit fee"
+    },
+    "errors": {
+      "validation": "Please check the form.",
+      "full": "No cars available for the selected dates.",
+      "unavailable": "Online reservations will be available once the database is connected.",
+      "server": "Something went wrong. Please try again.",
+      "required": "Required",
+      "past_date": "Date can't be in the past",
+      "end_before_start": "Return before pick-up",
+      "too_long": "Maximum rental period is 90 days",
+      "too_far": "Date too far ahead",
+      "invalid_phone": "Invalid number",
+      "invalid_date": "Invalid date"
+    }
   }
 }

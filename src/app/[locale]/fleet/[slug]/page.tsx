@@ -6,8 +6,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { CarMedia } from "@/components/fleet/CarMedia";
 import { Link } from "@/i18n/navigation";
 import { getCarModelBySlug, getFleetSlugs } from "@/lib/fleet/repo";
-import { formatPln } from "@/lib/format";
-import { siteConfig } from "@/lib/config/site";
+import { getFeeCatalog, getLocations } from "@/lib/booking/repo";
+import { BookingPanel } from "@/components/booking/BookingPanel";
 
 export async function generateStaticParams() {
   const slugs = await getFleetSlugs();
@@ -42,6 +42,7 @@ export default async function CarDetailPage({
 
   const t = await getTranslations("Fleet");
   const description = locale === "en" ? car.descriptionEn : car.descriptionPl;
+  const [locations, fees] = await Promise.all([getLocations(), getFeeCatalog()]);
 
   const specs = [
     { label: t("yearLabel"), value: String(car.year) },
@@ -111,51 +112,10 @@ export default async function CarDetailPage({
           )}
         </div>
 
-        {/* Right: price + booking */}
+        {/* Right: live booking calculator + reservation request */}
         <Reveal delay={0.1}>
-          <aside className="lg:sticky lg:top-28">
-            <div className="border border-line p-7">
-              <div className="flex items-end justify-between">
-                <span className="label-tight text-[11px] text-ink-faint">
-                  {t("from")}
-                </span>
-                <div className="text-right">
-                  <p className="font-heading text-3xl font-bold text-white">
-                    {formatPln(car.dailyPriceGrosze, locale)}
-                  </p>
-                  <p className="label-tight text-[10px] text-ink-faint">
-                    / {t("perDay")}
-                  </p>
-                </div>
-              </div>
-
-              <dl className="mt-6 space-y-3 border-t border-line pt-6 text-sm">
-                <div className="flex justify-between">
-                  <dt className="text-ink-muted">{t("perMonth")}</dt>
-                  <dd className="text-white">
-                    {formatPln(car.monthlyPriceGrosze, locale)}
-                  </dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt className="text-ink-muted">{t("deposit")}</dt>
-                  <dd className="text-white">
-                    {formatPln(car.depositGrosze, locale)}
-                  </dd>
-                </div>
-              </dl>
-
-              {/* Booking flow arrives in Phase 3. For now, reserving starts with a
-                  call; the CTA and caption make that explicit. */}
-              <a
-                href={siteConfig.phoneHref}
-                className="label mt-7 inline-flex h-14 w-full items-center justify-center gap-2 bg-red text-sm text-white transition-colors hover:bg-red-hover"
-              >
-                {t("book")}
-              </a>
-              <p className="label-tight mt-3 text-center text-[10px] text-ink-faint">
-                {t("bookingSoon")}
-              </p>
-            </div>
+          <aside className="lg:sticky lg:top-24">
+            <BookingPanel car={car} locations={locations} fees={fees} />
           </aside>
         </Reveal>
       </div>

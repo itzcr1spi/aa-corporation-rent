@@ -75,5 +75,52 @@
       "sedan": "Limuzyna",
       "van": "Bus 9-osobowy"
     }
+  },
+  "Booking": {
+    "title": "Zarezerwuj",
+    "startDate": "Odbiór",
+    "endDate": "Zwrot",
+    "location": "Miejsce odbioru",
+    "extras": "Dodatki",
+    "extraDriver": "Dodatkowy kierowca",
+    "childSeat": "Fotelik dziecięcy",
+    "protectionPackage": "Pakiet ochronny",
+    "depositTitle": "Kaucja",
+    "withDeposit": "Z kaucją",
+    "noDeposit": "Bez kaucji",
+    "days": "{days, plural, one {# doba} few {# doby} many {# dni} other {# dni}}",
+    "rental": "Wynajem",
+    "total": "Razem",
+    "depositHeld": "Kaucja (zwrotna)",
+    "contact": "Dane kontaktowe",
+    "name": "Imię i nazwisko",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "submit": "Wyślij rezerwację",
+    "submitting": "Wysyłanie…",
+    "note": "Rezerwacja bez płatności online. Potwierdzimy dostępność i skontaktujemy się z Tobą.",
+    "successTitle": "Rezerwacja wysłana",
+    "successBody": "Numer rezerwacji: {ref}. Skontaktujemy się z Tobą w celu potwierdzenia.",
+    "newBooking": "Nowa rezerwacja",
+    "lineLabels": {
+      "location": "Dojazd / odbiór",
+      "extra_driver": "Dodatkowy kierowca",
+      "child_seat": "Fotelik dziecięcy",
+      "protection_package": "Pakiet ochronny",
+      "no_deposit": "Opłata bez kaucji"
+    },
+    "errors": {
+      "validation": "Sprawdź poprawność formularza.",
+      "full": "Brak dostępnych aut w wybranym terminie.",
+      "unavailable": "Rezerwacje online będą dostępne po podłączeniu bazy danych.",
+      "server": "Wystąpił błąd. Spróbuj ponownie.",
+      "required": "Pole wymagane",
+      "past_date": "Data nie może być w przeszłości",
+      "end_before_start": "Zwrot przed odbiorem",
+      "too_long": "Maksymalny okres najmu to 90 dni",
+      "too_far": "Termin zbyt odległy",
+      "invalid_phone": "Nieprawidłowy numer",
+      "invalid_date": "Nieprawidłowa data"
+    }
   }
 }
