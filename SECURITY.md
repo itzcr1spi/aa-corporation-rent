@@ -17,6 +17,26 @@ are implemented and any open items. Reviewed at the end of every phase.
 - **DB/storage** behind thin layers; money as integer grosze; sensitive-doc storage
   designed for private buckets + signed URLs (interface in `src/lib/storage`).
 
+## Implemented (Phase 2 — fleet)
+
+- **IDOR / injection**: `/fleet/[slug]` slug is regex-validated before any query and
+  looked up via a parameterized ORM query; only `published` models returned; unknown
+  slug → `notFound()`. Verified fail-closed against SQLi/XSS/traversal probes.
+
+## Implemented (Phase 3 — booking)
+
+- **No price from the client**: the booking request schema has no price fields; the
+  authoritative total is recomputed server-side (`computeQuote`) from DB prices and
+  snapshotted onto the reservation. Verified: injected `totalGrosze`/`price` are stripped.
+- **No double-booking in the DB**: Postgres `EXCLUDE USING gist (car_id, daterange)`
+  over blocking statuses (`drizzle/0001_*`). Races cannot double-book. Verified with
+  PGlite: overlapping/endpoint-touching confirmed bookings rejected; pending overlaps
+  and different cars allowed.
+- **Boundary validation**: every booking field is Zod-validated server-side (date order,
+  past dates, min/max rental, lead time, enum membership, email/phone). Unknown model/
+  location → fail closed. Verified with a validation test suite.
+- **Price engine** unit-tested (extras, per-day/per-rental, deposit variants, day flooring).
+
 ## Open items (tracked)
 
 - **CSP `script-src 'unsafe-inline'`** — TODO(security). The target is nonce/hash-based

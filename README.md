@@ -96,9 +96,9 @@ retention. Analytics load only behind a RODO/GDPR consent banner.
 
 ## Roadmap
 
-1. ✅ Scaffold, design tokens, base layout, i18n (PL/EN) — **this phase**
-2. Fleet listing + car detail cards
-3. Availability calendar + booking flow + live price calculator
+1. ✅ Scaffold, design tokens, base layout, i18n (PL/EN)
+2. ✅ Fleet listing + car detail cards + homepage models showcase
+3. ✅ Booking flow + live price calculator + DB-enforced no-double-booking
 4. Client form + document upload
 5. ~~Online payment~~ (deferred — out of current scope)
 6. Contract PDF + checkbox/SMS acceptance
