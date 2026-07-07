@@ -57,7 +57,7 @@ export const FLEET: FleetModelSeed[] = [
       "Reprezentacyjna limuzyna klasy premium. Idealna na spotkania biznesowe, transfery lotniskowe i wymagające wyjazdy.",
     descriptionEn:
       "A flagship executive sedan. Ideal for business meetings, airport transfers and demanding journeys.",
-    images: ["/hero/bmw-740d.jpg"],
+    images: ["/fleet/bmw-740d.jpg"],
     sortOrder: 10,
     units: [
       {
