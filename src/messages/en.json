@@ -5,6 +5,7 @@
   },
   "Nav": {
     "fleet": "Fleet",
+    "about": "About us",
     "howItWorks": "How it works",
     "contact": "Contact",
     "book": "Book now",
@@ -122,5 +123,33 @@
       "invalid_phone": "Invalid number",
       "invalid_date": "Invalid date"
     }
+  },
+  "About": {
+    "eyebrow": "About us",
+    "title": "Premium motoring at its finest",
+    "intro": "A&A Corporation is a modern premium car rental offering the highest standard of service, uncompromising quality and unforgettable driving experiences.",
+    "pillars": {
+      "premiumTop": "Premium",
+      "premiumSub": "Quality",
+      "trustTop": "Trust",
+      "trustSub": "Safety",
+      "modernTop": "Modern",
+      "modernSub": "Innovation"
+    },
+    "missionTitle": "Mission",
+    "mission": "We deliver exceptional cars and the highest level of service, meeting the expectations of the most demanding clients.",
+    "visionTitle": "Vision",
+    "vision": "To be the leader in premium car rental in Poland and Europe.",
+    "valuesTitle": "Values",
+    "values": {
+      "passion": "Passion for motoring",
+      "professionalism": "Professionalism",
+      "honesty": "Honesty & transparency",
+      "safety": "Safety",
+      "innovation": "Innovation",
+      "detail": "Attention to detail"
+    },
+    "ctaTitle": "Ready to hit the road?",
+    "cta": "View the fleet"
   }
 }

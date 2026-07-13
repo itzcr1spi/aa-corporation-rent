@@ -5,6 +5,7 @@
   },
   "Nav": {
     "fleet": "Flota",
+    "about": "O nas",
     "howItWorks": "Jak to działa",
     "contact": "Kontakt",
     "book": "Zarezerwuj teraz",
@@ -122,5 +123,33 @@
       "invalid_phone": "Nieprawidłowy numer",
       "invalid_date": "Nieprawidłowa data"
     }
+  },
+  "About": {
+    "eyebrow": "O nas",
+    "title": "Motoryzacja premium w najlepszym wydaniu",
+    "intro": "A&A Corporation to nowoczesna wypożyczalnia samochodów premium, która oferuje najwyższy standard obsługi, bezkompromisową jakość oraz niezapomniane doświadczenia z jazdy.",
+    "pillars": {
+      "premiumTop": "Premium",
+      "premiumSub": "Jakość",
+      "trustTop": "Zaufanie",
+      "trustSub": "Bezpieczeństwo",
+      "modernTop": "Nowoczesność",
+      "modernSub": "Innowacja"
+    },
+    "missionTitle": "Misja",
+    "mission": "Dostarczamy klientom wyjątkowe samochody i najwyższy poziom usług, które spełniają oczekiwania najbardziej wymagających.",
+    "visionTitle": "Wizja",
+    "vision": "Być liderem w segmencie wynajmu samochodów premium w Polsce i Europie.",
+    "valuesTitle": "Wartości",
+    "values": {
+      "passion": "Pasja do motoryzacji",
+      "professionalism": "Profesjonalizm",
+      "honesty": "Uczciwość i przejrzystość",
+      "safety": "Bezpieczeństwo",
+      "innovation": "Innowacyjność",
+      "detail": "Dbałość o szczegóły"
+    },
+    "ctaTitle": "Gotowy, by ruszyć w drogę?",
+    "cta": "Zobacz flotę"
   }
 }

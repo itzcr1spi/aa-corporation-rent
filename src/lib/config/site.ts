@@ -16,6 +16,7 @@ export const siteConfig = {
 /** Primary navigation. `key` maps to a translation in messages/*.json → Nav.<key>. */
 export const mainNav = [
   { key: "fleet", href: "/fleet" },
+  { key: "about", href: "/about" },
   { key: "howItWorks", href: "/how-it-works" },
   { key: "contact", href: "/contact" },
 ] as const;
