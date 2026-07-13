@@ -160,5 +160,39 @@
     },
     "ctaTitle": "Ready to hit the road?",
     "cta": "View the fleet"
+  },
+  "HowItWorks": {
+    "eyebrow": "How it works",
+    "title": "Book in minutes",
+    "subtitle": "The whole process online — no office visit, no red tape. We confirm availability and get in touch.",
+    "steps": {
+      "s1Title": "Choose a car",
+      "s1Desc": "Browse the fleet and pick the model you like.",
+      "s2Title": "Dates & pick-up",
+      "s2Desc": "Set your rental dates and pick-up point — office, Chopin Airport or delivery to your address.",
+      "s3Title": "See the price",
+      "s3Desc": "The calculator instantly shows the full, transparent price with extras and deposit.",
+      "s4Title": "Enter your details",
+      "s4Desc": "Fill in the driver details needed for the rental contract.",
+      "s5Title": "Send the reservation",
+      "s5Desc": "Send the request — no online payment. We confirm availability and contact you.",
+      "s6Title": "Pick up the car",
+      "s6Desc": "Collect it at the office, the airport, or your address — ready to drive."
+    },
+    "cta": "View the fleet"
+  },
+  "Contact": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "subtitle": "We're happy to answer questions and help you pick the right car. Call or write to us.",
+    "phone": "Phone",
+    "email": "E-mail",
+    "address": "Address",
+    "hours": "Opening hours",
+    "hoursValue": "Mon–Fri 9:00–18:00 · Sat 10:00–14:00",
+    "call": "Call us",
+    "write": "Email us",
+    "locationsTitle": "Pick-up locations",
+    "book": "Book now"
   }
 }

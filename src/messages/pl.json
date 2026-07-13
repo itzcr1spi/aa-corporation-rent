@@ -160,5 +160,39 @@
     },
     "ctaTitle": "Gotowy, by ruszyć w drogę?",
     "cta": "Zobacz flotę"
+  },
+  "HowItWorks": {
+    "eyebrow": "Jak to działa",
+    "title": "Rezerwacja w kilka minut",
+    "subtitle": "Cały proces online — bez wizyty w biurze i bez zbędnych formalności. Potwierdzamy dostępność i kontaktujemy się z Tobą.",
+    "steps": {
+      "s1Title": "Wybierz samochód",
+      "s1Desc": "Przeglądaj flotę i wybierz model, który Cię interesuje.",
+      "s2Title": "Termin i miejsce odbioru",
+      "s2Desc": "Wskaż daty najmu i miejsce odbioru — biuro, Lotnisko Chopina lub dostawa pod adres.",
+      "s3Title": "Poznaj cenę",
+      "s3Desc": "Kalkulator od razu pokazuje pełną, przejrzystą cenę wraz z dodatkami i kaucją.",
+      "s4Title": "Podaj swoje dane",
+      "s4Desc": "Uzupełnij dane kierowcy potrzebne do umowy najmu.",
+      "s5Title": "Wyślij rezerwację",
+      "s5Desc": "Wyślij zgłoszenie — bez płatności online. Potwierdzimy dostępność i skontaktujemy się z Tobą.",
+      "s6Title": "Odbierz auto",
+      "s6Desc": "Odbierz samochód w biurze, na lotnisku lub pod wskazanym adresem — gotowy do drogi."
+    },
+    "cta": "Zobacz flotę"
+  },
+  "Contact": {
+    "eyebrow": "Kontakt",
+    "title": "Skontaktuj się z nami",
+    "subtitle": "Chętnie odpowiemy na pytania i pomożemy dobrać samochód. Zadzwoń lub napisz.",
+    "phone": "Telefon",
+    "email": "E-mail",
+    "address": "Adres",
+    "hours": "Godziny pracy",
+    "hoursValue": "Pon.–Pt. 9:00–18:00 · Sob. 10:00–14:00",
+    "call": "Zadzwoń",
+    "write": "Napisz e-mail",
+    "locationsTitle": "Miejsca odbioru",
+    "book": "Zarezerwuj teraz"
   }
 }
