@@ -41,11 +41,31 @@ export const bookingRequestSchema = z
       .min(6)
       .max(32)
       .regex(/^[+0-9()\s-]+$/, "invalid_phone"),
+    dateOfBirth: isoDate,
+    addressStreet: z.string().trim().min(3).max(160),
+    addressPostcode: z
+      .string()
+      .trim()
+      .regex(/^\d{2}-\d{3}$/, "invalid_postcode"),
+    addressCity: z.string().trim().min(2).max(80),
+    licenceNumber: z
+      .string()
+      .trim()
+      .min(3)
+      .max(40)
+      .regex(/^[A-Za-z0-9/ -]+$/, "invalid_licence"),
   })
   .superRefine((v, ctx) => {
     const start = utcMidnight(v.startDate);
     const end = utcMidnight(v.endDate);
     const today = todayUtc();
+
+    // Driver must be at least minAge at the rental start.
+    const dob = utcMidnight(v.dateOfBirth);
+    const ageYears = (start - dob) / (365.25 * 86_400_000);
+    if (ageYears < BOOKING_RULES.minAge) {
+      ctx.addIssue({ code: "custom", path: ["dateOfBirth"], message: "under_age" });
+    }
 
     if (start < today) {
       ctx.addIssue({ code: "custom", path: ["startDate"], message: "past_date" });

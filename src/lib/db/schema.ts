@@ -174,10 +174,17 @@ export const reservations = pgTable(
     totalGrosze: integer("total_grosze").notNull(),
     depositGrosze: integer("deposit_grosze").notNull().default(0),
     quote: text("quote").notNull(), // JSON string of the QuoteBreakdown
-    // Basic contact captured at request time; full client data + docs in Phase 4.
+    // Client details captured with the request. Document scans + the most sensitive
+    // IDs (PESEL/passport) are deliberately NOT stored yet — deferred until private
+    // storage, field encryption and a RODO basis are in place (see SECURITY.md).
     customerName: text("customer_name").notNull(),
     customerEmail: text("customer_email").notNull(),
     customerPhone: text("customer_phone").notNull(),
+    dateOfBirth: date("date_of_birth"),
+    addressStreet: text("address_street"),
+    addressPostcode: text("address_postcode"),
+    addressCity: text("address_city"),
+    licenceNumber: text("licence_number"),
     status: reservationStatus("status").notNull().default("pending"),
     createdAt: timestamp("created_at", { withTimezone: true })
       .notNull()

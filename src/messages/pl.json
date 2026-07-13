@@ -97,6 +97,12 @@
     "name": "Imię i nazwisko",
     "email": "E-mail",
     "phone": "Telefon",
+    "driver": "Dane kierowcy",
+    "dateOfBirth": "Data urodzenia",
+    "street": "Ulica i numer",
+    "postcode": "Kod pocztowy",
+    "city": "Miasto",
+    "licence": "Nr prawa jazdy",
     "submit": "Wyślij rezerwację",
     "submitting": "Wysyłanie…",
     "note": "Rezerwacja bez płatności online. Potwierdzimy dostępność i skontaktujemy się z Tobą.",
@@ -121,6 +127,9 @@
       "too_long": "Maksymalny okres najmu to 90 dni",
       "too_far": "Termin zbyt odległy",
       "invalid_phone": "Nieprawidłowy numer",
+      "invalid_postcode": "Nieprawidłowy kod (00-000)",
+      "invalid_licence": "Nieprawidłowy numer",
+      "under_age": "Wymagany minimalny wiek 21 lat",
       "invalid_date": "Nieprawidłowa data"
     }
   },

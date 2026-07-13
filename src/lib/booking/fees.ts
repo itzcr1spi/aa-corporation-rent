@@ -54,4 +54,6 @@ export const BOOKING_RULES = {
   maxDays: 90,
   /** How far ahead a booking may start. */
   maxLeadDays: 365,
+  /** Minimum driver age for premium rentals — adjust per client policy. */
+  minAge: 21,
 } as const;

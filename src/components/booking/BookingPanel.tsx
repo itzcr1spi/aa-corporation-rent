@@ -99,6 +99,11 @@ export function BookingPanel({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [street, setStreet] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [city, setCity] = useState("");
+  const [licence, setLicence] = useState("");
   const [pending, startTransition] = useTransition();
   const [result, setResult] = useState<ReserveResult | null>(null);
 
@@ -145,6 +150,11 @@ export function BookingPanel({
         customerName: name,
         customerEmail: email,
         customerPhone: phone,
+        dateOfBirth,
+        addressStreet: street,
+        addressPostcode: postcode,
+        addressCity: city,
+        licenceNumber: licence,
       });
       setResult(res);
     });
@@ -286,6 +296,27 @@ export function BookingPanel({
         <Field label={t("phone")} error={fErr("customerPhone")}>
           <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} className={inputCls} required autoComplete="tel" />
         </Field>
+      </fieldset>
+
+      <fieldset className="mt-6 space-y-3">
+        <legend className="label-tight text-[10px] text-ink-faint">{t("driver")}</legend>
+        <Field label={t("dateOfBirth")} error={fErr("dateOfBirth")}>
+          <input type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} className={inputCls} required autoComplete="bday" />
+        </Field>
+        <Field label={t("licence")} error={fErr("licenceNumber")}>
+          <input value={licence} onChange={(e) => setLicence(e.target.value)} className={inputCls} required />
+        </Field>
+        <Field label={t("street")} error={fErr("addressStreet")}>
+          <input value={street} onChange={(e) => setStreet(e.target.value)} className={inputCls} required autoComplete="street-address" />
+        </Field>
+        <div className="grid grid-cols-[1fr_1.4fr] gap-3">
+          <Field label={t("postcode")} error={fErr("addressPostcode")}>
+            <input value={postcode} onChange={(e) => setPostcode(e.target.value)} className={inputCls} required autoComplete="postal-code" placeholder="00-000" />
+          </Field>
+          <Field label={t("city")} error={fErr("addressCity")}>
+            <input value={city} onChange={(e) => setCity(e.target.value)} className={inputCls} required autoComplete="address-level2" />
+          </Field>
+        </div>
       </fieldset>
 
       {result && !result.ok && (

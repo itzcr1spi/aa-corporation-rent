@@ -132,6 +132,11 @@ export async function createReservation(raw: unknown): Promise<ReserveResult> {
         customerName: input.customerName,
         customerEmail: input.customerEmail,
         customerPhone: input.customerPhone,
+        dateOfBirth: input.dateOfBirth,
+        addressStreet: input.addressStreet,
+        addressPostcode: input.addressPostcode,
+        addressCity: input.addressCity,
+        licenceNumber: input.licenceNumber,
         status: "pending",
       });
       return carId;

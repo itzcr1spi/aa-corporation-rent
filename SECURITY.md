@@ -37,6 +37,18 @@ are implemented and any open items. Reviewed at the end of every phase.
   location → fail closed. Verified with a validation test suite.
 - **Price engine** unit-tested (extras, per-day/per-rental, deposit variants, day flooring).
 
+## Implemented (Phase 4 — client form)
+
+- Client details (name, email, phone, date of birth, address, driver's licence no.)
+  captured with the reservation. All Zod-validated server-side: PL postcode format,
+  licence charset (rejects injection), **min-age 21** at rental start, DOB not in
+  future. Verified with a validation test suite.
+- **Document uploads and the most sensitive IDs (PESEL/passport) are deliberately
+  NOT collected/stored yet** — deferred by decision until private object storage,
+  field-level encryption at rest, and a RODO lawful basis + retention policy are in
+  place. Flagged to the client as a legal prerequisite before going live with real
+  customer data.
+
 ## Open items (tracked)
 
 - **CSP `script-src 'unsafe-inline'`** — TODO(security). The target is nonce/hash-based

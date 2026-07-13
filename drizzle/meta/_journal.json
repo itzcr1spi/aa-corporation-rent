@@ -15,6 +15,13 @@
       "when": 1783418362450,
       "tag": "0001_complex_the_santerians",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1783967297729,
+      "tag": "0002_lumpy_matthew_murdock",
+      "breakpoints": true
     }
   ]
 }

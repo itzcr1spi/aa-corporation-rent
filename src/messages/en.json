@@ -97,6 +97,12 @@
     "name": "Full name",
     "email": "E-mail",
     "phone": "Phone",
+    "driver": "Driver details",
+    "dateOfBirth": "Date of birth",
+    "street": "Street & number",
+    "postcode": "Postcode",
+    "city": "City",
+    "licence": "Driver's licence no.",
     "submit": "Send reservation",
     "submitting": "Sending…",
     "note": "Reservation without online payment. We'll confirm availability and get in touch.",
@@ -121,6 +127,9 @@
       "too_long": "Maximum rental period is 90 days",
       "too_far": "Date too far ahead",
       "invalid_phone": "Invalid number",
+      "invalid_postcode": "Invalid postcode (00-000)",
+      "invalid_licence": "Invalid number",
+      "under_age": "Minimum age 21 required",
       "invalid_date": "Invalid date"
     }
   },
