@@ -1,0 +1,8 @@
+# Caddy auto-obtains and renews a Let's Encrypt certificate for SITE_DOMAIN
+# once that domain's A record points at this server. See HANDOFF.md §5.6.
+#
+# For pre-DNS testing over plain HTTP, set SITE_DOMAIN=:80 in .env.
+{$SITE_DOMAIN} {
+	encode zstd gzip
+	reverse_proxy app:3000
+}
