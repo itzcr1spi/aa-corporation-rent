@@ -43,10 +43,18 @@ pages: `/about` (O nas), `/how-it-works` (Jak to działa), `/contact` (Kontakt).
 Currently deployed on Vercel (public site; **DB was skipped there**, so submit shows
 "connect a database").
 
+**Built (Phase 5–6 — admin panel + legal):** Auth.js credentials login (no public
+signup; argon2id; account lockout; audit log) at `/admin`; **reservations** (list/
+filter/detail + status workflow that fires the DB no-double-booking EXCLUDE on
+confirm), **cennik** (edit model prices, fees, pickup fees), **fleet CRUD** (models +
+physical units, reference-gated delete), **audit-log viewer**. Public: **/regulamin**
+and **/polityka-prywatnosci** (PL+EN, footer-linked) and a **RODO cookie banner**.
+Admin is Polish-only. Every admin mutation calls `requireAdmin()` + Zod + writes audit.
+
 **Deferred / not built:** online payment (intentionally skipped); **document uploads +
 PESEL/passport** (deferred until private storage + field encryption + a RODO basis
 exist — see SECURITY.md); contract PDF + SMS acceptance; email/SMS notifications;
-**admin panel** (auth, reservations, calendars, clients, statuses, price editing).
+per-IP login rate-limiting and 2FA (schema reserved) — see SECURITY.md open items.
 
 **Placeholders needing real values from the client:** car prices & deposits
 (`src/lib/fleet/data.ts`), extra fees & pickup fees (`src/lib/booking/fees.ts`),
@@ -117,11 +125,13 @@ POSTGRES_PASSWORD=<generate: openssl rand -base64 24>
 SITE_DOMAIN=aacorporation.pl        # or a temp subdomain you control, or the server IP for testing
 SITE_URL=https://aacorporation.pl
 DATABASE_URL=postgres://aa:<POSTGRES_PASSWORD>@localhost:5432/aa_rental
+AUTH_SECRET=<generate: openssl rand -base64 32>   # REQUIRED — signs admin sessions
 ```
 
-`.env.example` documents every variable. Later phases add `AUTH_SECRET` (admin),
-`S3_*` (uploads → Hetzner Object Storage or self-hosted MinIO), `RESEND_API_KEY` /
-`SMSAPI_TOKEN` (notifications).
+`AUTH_SECRET` is now required (the admin panel exists) — Auth.js will refuse to start
+without it. `.env.example` documents every variable. Later phases add `S3_*` (uploads →
+Hetzner Object Storage or self-hosted MinIO), `RESEND_API_KEY` / `SMSAPI_TOKEN`
+(notifications).
 
 ### 5.4 Bring up the stack (Docker path — recommended)
 
@@ -135,8 +145,9 @@ docker compose -f docker-compose.prod.yml up -d db
 # 2) run migrations + seed from the host (needs Node + `npm ci` once)
 npm ci
 export $(grep -v '^#' .env | xargs)     # load DATABASE_URL etc.
-npm run db:migrate    # creates tables + btree_gist + the no-double-booking EXCLUDE
+npm run db:migrate    # creates ALL tables incl. admins + audit_log + the no-double-booking EXCLUDE
 npm run db:seed       # fleet, fees, pickup locations (PLACEHOLDER prices)
+npm run admin:create  # interactive — creates the first admin login for /admin (needs DATABASE_URL)
 
 # 3) build + start the app and Caddy
 docker compose -f docker-compose.prod.yml up -d --build
@@ -180,6 +191,8 @@ testing). TLS is automatic once DNS resolves (Caddy) or via Certbot (Nginx).
   **confirmed** dates for the same car unit must be rejected by the DB.
 - Check response headers include `content-security-policy`, `strict-transport-security`,
   `x-frame-options: DENY` (these come from `next.config.ts` and still apply here).
+- `/admin` redirects to `/admin/login`; log in with the `admin:create` account, confirm a
+  pending reservation, and check the change shows in **Dziennik zdarzeń** (audit log).
 
 ### 5.8 Backups & ops
 
