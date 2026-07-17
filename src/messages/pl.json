@@ -33,7 +33,18 @@
   "Footer": {
     "rights": "Wszelkie prawa zastrzeżone.",
     "nip": "NIP: —",
-    "builtWith": "Premium Car Rental Warszawa"
+    "builtWith": "Premium Car Rental Warszawa",
+    "legal": "Informacje prawne",
+    "terms": "Regulamin",
+    "privacy": "Polityka prywatności",
+    "cookies": "Ustawienia cookie"
+  },
+  "Cookies": {
+    "title": "Szanujemy Twoją prywatność",
+    "body": "Używamy niezbędnych plików cookie, aby serwis działał poprawnie. Dodatkowe pliki cookie stosujemy wyłącznie za Twoją zgodą. Więcej w dokumencie:",
+    "acceptAll": "Akceptuję wszystkie",
+    "essential": "Tylko niezbędne",
+    "privacy": "Polityka prywatności"
   },
   "Common": {
     "loading": "Ładowanie…",

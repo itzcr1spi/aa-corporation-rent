@@ -61,6 +61,8 @@ const nextConfig: NextConfig = {
     // Car photos and (later) signed document previews will be served from
     // S3-compatible object storage. Hosts get added here once STORAGE_* is set.
     remotePatterns: [],
+    // Next 16 requires each <Image quality> value to be declared. 90 = the hero.
+    qualities: [75, 90],
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

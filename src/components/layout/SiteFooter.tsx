@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/lib/config/site";
 import { mainNav } from "@/lib/config/site";
+import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
 
 export function SiteFooter() {
   const t = useTranslations("Nav");
@@ -45,10 +46,22 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-line">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-2 px-6 py-6 text-xs text-ink-faint md:flex-row md:items-center md:justify-between md:px-10">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 py-6 text-xs text-ink-faint md:flex-row md:items-center md:justify-between md:px-10">
           <span>
             © {year} {siteConfig.name}. {tf("rights")}
           </span>
+          <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/regulamin" className="transition-colors hover:text-white">
+              {tf("terms")}
+            </Link>
+            <Link
+              href="/polityka-prywatnosci"
+              className="transition-colors hover:text-white"
+            >
+              {tf("privacy")}
+            </Link>
+            <CookieSettingsButton label={tf("cookies")} />
+          </nav>
           <span className="label-tight">{tf("nip")}</span>
         </div>
       </div>

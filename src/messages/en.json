@@ -33,7 +33,18 @@
   "Footer": {
     "rights": "All rights reserved.",
     "nip": "VAT ID: —",
-    "builtWith": "Premium Car Rental Warsaw"
+    "builtWith": "Premium Car Rental Warsaw",
+    "legal": "Legal",
+    "terms": "Terms",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie settings"
+  },
+  "Cookies": {
+    "title": "We respect your privacy",
+    "body": "We use essential cookies to make the site work. Additional cookies are used only with your consent. Learn more in our:",
+    "acceptAll": "Accept all",
+    "essential": "Essential only",
+    "privacy": "Privacy Policy"
   },
   "Common": {
     "loading": "Loading…",
