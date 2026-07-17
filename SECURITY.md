@@ -49,7 +49,27 @@ are implemented and any open items. Reviewed at the end of every phase.
   place. Flagged to the client as a legal prerequisite before going live with real
   customer data.
 
+## Implemented (Phase 5 — admin auth foundation)
+
+- **Auth.js (credentials), no public registration.** Admins created only via
+  `npm run admin:create`. Passwords hashed with **argon2id** (salted; verified).
+- **Brute-force defense:** per-account lockout (5 fails → 15 min). Login events
+  (`login.success` / `login.fail`) written to `audit_log` with IP.
+- **Generic auth failures** — same result for unknown email / wrong password /
+  locked account (no user enumeration).
+- **Defense in depth on `/admin`:** middleware bounces requests with no session
+  cookie to `/admin/login`, AND the admin layout re-verifies `auth()` server-side
+  (the cookie-presence check is not verification — the layout/actions are authoritative).
+- JWT session, httpOnly cookie, 8h expiry. Admin UI is separated from the public
+  site via the `(public)` route group so it has no public chrome.
+
 ## Open items (tracked)
+
+- **Per-IP login rate-limiting** — TODO. Account lockout is in place; add an IP-based
+  limiter on the login endpoint (and reuse it on public write endpoints) to blunt
+  distributed brute-force. Needs a small store (in-memory for one node, or DB/Redis).
+- **2FA (TOTP)** — schema field (`admins.totp_secret`) reserved; enrollment/verification
+  deferred by decision (structure-for-later).
 
 - **CSP `script-src 'unsafe-inline'`** — TODO(security). The target is nonce/hash-based
   `script-src` with no `unsafe-inline`. Next 16.2's automatic nonce propagation did not

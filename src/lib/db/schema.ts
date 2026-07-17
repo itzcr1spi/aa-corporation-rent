@@ -7,6 +7,7 @@ import {
   boolean,
   date,
   timestamp,
+  jsonb,
   index,
 } from "drizzle-orm/pg-core";
 
@@ -209,3 +210,55 @@ export type NewCar = typeof cars.$inferInsert;
 export type Fee = typeof fees.$inferSelect;
 export type Reservation = typeof reservations.$inferSelect;
 export type NewReservation = typeof reservations.$inferInsert;
+
+// ── Admin accounts (no public registration) ──────────────────────────────────
+export const adminRole = pgEnum("admin_role", ["admin", "superadmin"]);
+
+export const admins = pgTable("admins", {
+  id: uuid("id").defaultRandom().primaryKey(),
+  email: text("email").notNull().unique(),
+  passwordHash: text("password_hash").notNull(), // argon2
+  name: text("name").notNull(),
+  role: adminRole("role").notNull().default("admin"),
+  totpSecret: text("totp_secret"), // 2FA — structured for later
+  // Brute-force protection: lock after repeated failures.
+  failedAttempts: integer("failed_attempts").notNull().default(0),
+  lockedUntil: timestamp("locked_until", { withTimezone: true }),
+  lastLoginAt: timestamp("last_login_at", { withTimezone: true }),
+  active: boolean("active").notNull().default(true),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+});
+
+// ── Audit log — every admin action + auth event (who/what/before→after/when) ──
+export const auditLog = pgTable(
+  "audit_log",
+  {
+    id: uuid("id").defaultRandom().primaryKey(),
+    adminId: uuid("admin_id").references(() => admins.id, {
+      onDelete: "set null",
+    }),
+    action: text("action").notNull(), // login.success | login.fail | reservation.confirm | price.update | car.delete …
+    entity: text("entity"), // reservation | car_model | car | fee | pickup_location | admin
+    entityId: text("entity_id"),
+    before: jsonb("before"),
+    after: jsonb("after"),
+    ip: text("ip"),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => [
+    index("audit_log_admin_idx").on(t.adminId),
+    index("audit_log_created_idx").on(t.createdAt),
+  ],
+);
+
+export type Admin = typeof admins.$inferSelect;
+export type NewAdmin = typeof admins.$inferInsert;
+export type AuditLog = typeof auditLog.$inferSelect;
+export type NewAuditLog = typeof auditLog.$inferInsert;

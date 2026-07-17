@@ -4,8 +4,6 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Raleway, Montserrat } from "next/font/google";
 import { routing } from "@/i18n/routing";
-import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SiteFooter } from "@/components/layout/SiteFooter";
 import "../globals.css";
 
 // latin-ext covers Polish diacritics (ł ż ó ą ę ś ć ń ź).
@@ -56,13 +54,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${raleway.variable} ${montserrat.variable}`}>
       <body className="min-h-screen bg-void text-white antialiased">
-        <NextIntlClientProvider>
-          <div className="flex min-h-screen flex-col">
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-          </div>
-        </NextIntlClientProvider>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
